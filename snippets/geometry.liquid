@@ -1,0 +1,55 @@
+{% assign key = geometry %}
+
+{% unless reference %}
+  {% assign reference = product.id %}
+{% endunless %}
+
+<style>
+  .geometry-product {
+    border: 1px solid #DDD;
+    width: 50%;
+    height: 350px;
+    float: left;
+    cursor: move;
+  }
+
+  .geometry-product .grid__item {
+    width: 100%;
+  }
+
+  .gm-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    line-height: 1;
+    cursor: wait;
+  }
+
+  .gm-bar-container {
+    width: 80%;
+    border-radius: 20px;
+    border: 1px solid #DDD;
+    padding: 2px;
+    margin-bottom: 5px;
+  }
+
+  .gm-bar {
+    border-radius: 20px;
+  }
+
+  .gm-loading-text {
+    font-size: 0.9em;
+  }
+
+  /* this is a required style */
+  .gm-fallback { display: none !important; }
+</style>
+
+<div
+  id="gm-container"
+  class="geometry-product"
+  data-product="{{ reference }}"
+  data-key="{{ key }}"
+></div>
